@@ -1,17 +1,17 @@
 package Main;
 
-import java.awt.Container;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.net.URL;
-import javax.swing.ImageIcon;
-import javax.swing.JDesktopPane;
+import Views.Administracion.GestionProductos;
+import Views.Consulatas.ConsultaNombre;
+import Views.Consulatas.ConsultaPrecio;
+import Views.Consulatas.ConsultaRubro;
 import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.setSize(750, 550);
+        
+        
         
         
     }
@@ -105,23 +105,59 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGestionProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGestionProductosActionPerformed
-        // TODO add your handling code here:
+        
+        GestionProductos gestionProductos=new GestionProductos();
+        jDesktopPane.add(gestionProductos);
+        int x=(jDesktopPane.getWidth()-gestionProductos.getWidth())/2;
+        int y=(jDesktopPane.getHeight()-gestionProductos.getHeight())/2;
+        gestionProductos.setLocation(x, y);
+        gestionProductos.setVisible(true);
+        
+        
     }//GEN-LAST:event_jGestionProductosActionPerformed
 
     private void jConsultaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaNombreActionPerformed
-        // TODO add your handling code here:
+        
+        ConsultaNombre consultaNombre =new ConsultaNombre();
+        jDesktopPane.add(consultaNombre);
+        int x=(jDesktopPane.getWidth()-consultaNombre.getWidth())/2;
+        int y=(jDesktopPane.getHeight()-consultaNombre.getHeight())/2;
+        consultaNombre.setLocation(x, y);
+        consultaNombre.setVisible(true);
+        
+        
     }//GEN-LAST:event_jConsultaNombreActionPerformed
 
     private void jConsultaPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaPrecioActionPerformed
-        // TODO add your handling code here:
+        
+        ConsultaPrecio consultaPrecio=new ConsultaPrecio();
+        jDesktopPane.add(consultaPrecio);
+        int x=(jDesktopPane.getWidth()-consultaPrecio.getWidth())/2;
+        int y=(jDesktopPane.getHeight()-consultaPrecio.getHeight())/2;
+        consultaPrecio.setLocation(x, y);
+        consultaPrecio.setVisible(true);
+        
     }//GEN-LAST:event_jConsultaPrecioActionPerformed
 
     private void jConsultaRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaRubroActionPerformed
-        // TODO add your handling code here:
+        
+        ConsultaRubro consultaRubro=new ConsultaRubro();
+        jDesktopPane.add(consultaRubro);
+        int x=(jDesktopPane.getWidth()-consultaRubro.getWidth())/2;
+        int y=(jDesktopPane.getHeight()-consultaRubro.getHeight())/2;
+        consultaRubro.setLocation(x, y);
+        consultaRubro.setVisible(true);
+        
     }//GEN-LAST:event_jConsultaRubroActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
-        // TODO add your handling code here:
+       
+        int respuesta=JOptionPane.showConfirmDialog(this, "Esta seguro ?", "Confirmar Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if( respuesta==JOptionPane.YES_OPTION ) {
+            dispose();
+            System.exit(0);
+        }
+        
     }//GEN-LAST:event_jMenuSalirMouseClicked
 
     public static void main(String args[]) {

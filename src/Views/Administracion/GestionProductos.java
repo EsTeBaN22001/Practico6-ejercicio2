@@ -5,7 +5,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
 
     public GestionProductos() {
         initComponents();
-        this.setSize(500, 575);
+        this.setSize(500, 485);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -24,7 +24,7 @@ public class GestionProductos extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addGap(0, 449, Short.MAX_VALUE)
         );
 
         pack();
