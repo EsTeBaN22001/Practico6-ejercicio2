@@ -1,5 +1,11 @@
 package Main;
 
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JDesktopPane;
 import javax.swing.JOptionPane;
 
 public class Main extends javax.swing.JFrame {
@@ -15,11 +21,8 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem1 = new javax.swing.JMenuItem();
-        jDesktopPane = new javax.swing.JDesktopPane(
-
-            getClass().getResource("/img/imgFondo").toString()
-
-        );
+        jDesktopPane = new javax.swing.JDesktopPane();
+        jFondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMenuAdministracion = new javax.swing.JMenu();
         jGestionProductos = new javax.swing.JMenuItem();
@@ -33,16 +36,9 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPaneLayout = new javax.swing.GroupLayout(jDesktopPane);
-        jDesktopPane.setLayout(jDesktopPaneLayout);
-        jDesktopPaneLayout.setHorizontalGroup(
-            jDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
-        );
-        jDesktopPaneLayout.setVerticalGroup(
-            jDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 527, Short.MAX_VALUE)
-        );
+        jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgFondo.jpg"))); // NOI18N
+        jDesktopPane.add(jFondo);
+        jFondo.setBounds(0, 0, 750, 530);
 
         JMenuAdministracion.setText("Administracion");
 
@@ -156,7 +152,6 @@ public class Main extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Main().setVisible(true);
-                JOptionPane.showMessageDialog(null, "El pepee");
             }
         });
     }
@@ -169,6 +164,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jConsultaPrecio;
     private javax.swing.JMenuItem jConsultaRubro;
     private javax.swing.JDesktopPane jDesktopPane;
+    private javax.swing.JLabel jFondo;
     private javax.swing.JMenuItem jGestionProductos;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuConsultas;
