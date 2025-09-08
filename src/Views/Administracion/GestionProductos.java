@@ -1,31 +1,31 @@
 package Views.Administracion;
 
 import Controllers.Producto;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import Models.ProductosModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class GestionProductos extends javax.swing.JInternalFrame{
 
-    Set<Producto> productos = new TreeSet<>(Comparator.comparing(Producto :: getCodigo));
     private int filaSeleccionadaParaEdicion = -1;
 
     private DefaultTableModel modelo = new DefaultTableModel(
-      new String[]{"Código", "Descripción", "Precio", "Categoria", "Stock"}, 0);
+      new String[]{"Código", "Descripción", "Precio", "Categoria", "Stock"}, 0
+    );
 
     public GestionProductos(){
         initComponents();
         this.setSize(600, 550);
+
         cargarComboBox();
         cargarComboBoxInput();
+
         guardarButton.setEnabled(false);
+
         jTable1.setModel(modelo);
-        productos.add(new Producto(103, "Jabón Dove", 1800.0, "Perfumería", 100));
-        productos.add(new Producto(101, "Arroz Gallo", 2500.0, "Comestible", 50));
-        productos.add(new Producto(102, "Detergente Mágico", 3200.0, "Limpieza", 30));
         actualizarTabla();
+
+        ProductosModel productosModel = ProductosModel.getInstance();
 
         // Función para que al hacer click sobre un producto se cargue la información del productos en el formulario de edición
         jTable1.getSelectionModel().addListSelectionListener(new javax.swing.event.ListSelectionListener(){
@@ -60,7 +60,7 @@ public class GestionProductos extends javax.swing.JInternalFrame{
         DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
         modelo.setRowCount(0);
 
-        for(Producto p : productos){
+        for(Producto p : ProductosModel.getInstance().getProductos()){
             modelo.addRow(new Object[]{
                 p.getCodigo(),
                 p.getDescripcion(),
@@ -424,7 +424,7 @@ public class GestionProductos extends javax.swing.JInternalFrame{
 
             // Buscar el producto antiguo por código
             Producto productoAntiguo = null;
-            for(Producto p : productos){
+            for(Producto p : ProductosModel.getInstance().getProductos()){
                 if(p.getCodigo() == codigo){
                     productoAntiguo = p;
                     break;
@@ -432,16 +432,16 @@ public class GestionProductos extends javax.swing.JInternalFrame{
             }
 
             if(productoAntiguo != null){
-                productos.remove(productoAntiguo); // Eliminar antiguo
+                ProductosModel.getInstance().getProductos().remove(productoAntiguo); // Eliminar antiguo
             }
 
-            productos.add(productoNuevo); // Agregar actualizado
+            ProductosModel.getInstance().getProductos().add(productoNuevo); // Agregar actualizado
 
             JOptionPane.showMessageDialog(this, "Producto actualizado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
         } else{
             // ➕ MODO NUEVO: Agregar producto
-            productos.add(productoNuevo);
+            ProductosModel.getInstance().getProductos().add(productoNuevo);
             JOptionPane.showMessageDialog(this, "Producto agregado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
         }
 
@@ -464,7 +464,7 @@ public class GestionProductos extends javax.swing.JInternalFrame{
 
         // Buscar el producto en el TreeSet
         Producto productoAEliminar = null;
-        for(Producto p : productos){
+        for(Producto p : ProductosModel.getInstance().getProductos()){
             if(p.getCodigo() == codigo){
                 productoAEliminar = p;
                 break;
@@ -486,7 +486,7 @@ public class GestionProductos extends javax.swing.JInternalFrame{
         );
 
         if(confirmacion == JOptionPane.YES_OPTION){
-            productos.remove(productoAEliminar);
+            ProductosModel.getInstance().getProductos().remove(productoAEliminar);
             actualizarTabla();
             limpiarInputs();
             JOptionPane.showMessageDialog(this, "Producto eliminado correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
@@ -507,7 +507,7 @@ public class GestionProductos extends javax.swing.JInternalFrame{
         String categoria = (String) categoriaInput.getSelectedItem().toString();
         int stock = Integer.parseInt(stockInput.getValue().toString());
 
-        productos.add(new Producto(codigo, descripcion, precio, categoria, stock));
+        ProductosModel.getInstance().getProductos().add(new Producto(codigo, descripcion, precio, categoria, stock));
 
         actualizarTabla();
 
