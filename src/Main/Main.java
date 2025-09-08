@@ -1,22 +1,20 @@
 package Main;
 
 import Views.Administracion.GestionProductos;
-import Views.Consulatas.ConsultaNombre;
-import Views.Consulatas.ConsultaPrecio;
-import Views.Consulatas.ConsultaRubro;
+import Views.Consultas.ConsultaNombre;
+import Views.Consultas.ConsultaPrecio;
+import Views.Consultas.ConsultaRubro;
 import javax.swing.JOptionPane;
 
-public class Main extends javax.swing.JFrame {
-    public Main() {
+public class Main extends javax.swing.JFrame{
+
+    public Main(){
         initComponents();
-        this.setSize(750, 550);
-        
-        
-        
-        
+        this.setSize(850, 680);
+
     }
 
-    @SuppressWarnings( "unchecked" )
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -38,7 +36,7 @@ public class Main extends javax.swing.JFrame {
 
         jFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/imgFondo.jpg"))); // NOI18N
         jDesktopPane.add(jFondo);
-        jFondo.setBounds(0, 0, 750, 530);
+        jFondo.setBounds(0, 0, 850, 620);
 
         JMenuAdministracion.setText("Administracion");
 
@@ -94,105 +92,101 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane)
+            .addComponent(jDesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 848, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane)
+            .addComponent(jDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, 619, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jGestionProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jGestionProductosActionPerformed
-        
-        GestionProductos gestionProductos=new GestionProductos();
+
+        GestionProductos gestionProductos = new GestionProductos();
         jDesktopPane.add(gestionProductos);
-        int x=(jDesktopPane.getWidth()-gestionProductos.getWidth())/2;
-        int y=(jDesktopPane.getHeight()-gestionProductos.getHeight())/2;
+        int x = (jDesktopPane.getWidth() - gestionProductos.getWidth()) / 2;
+        int y = (jDesktopPane.getHeight() - gestionProductos.getHeight()) / 2;
         gestionProductos.setLocation(x, y);
         gestionProductos.setVisible(true);
-        
-        
+
     }//GEN-LAST:event_jGestionProductosActionPerformed
 
     private void jConsultaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaNombreActionPerformed
-        
-        ConsultaNombre consultaNombre =new ConsultaNombre();
+
+        ConsultaNombre consultaNombre = new ConsultaNombre();
         jDesktopPane.add(consultaNombre);
-        int x=(jDesktopPane.getWidth()-consultaNombre.getWidth())/2;
-        int y=(jDesktopPane.getHeight()-consultaNombre.getHeight())/2;
+        int x = (jDesktopPane.getWidth() - consultaNombre.getWidth()) / 2;
+        int y = (jDesktopPane.getHeight() - consultaNombre.getHeight()) / 2;
         consultaNombre.setLocation(x, y);
         consultaNombre.setVisible(true);
-        
-        
+
     }//GEN-LAST:event_jConsultaNombreActionPerformed
 
     private void jConsultaPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaPrecioActionPerformed
-        
-        ConsultaPrecio consultaPrecio=new ConsultaPrecio();
+
+        ConsultaPrecio consultaPrecio = new ConsultaPrecio();
         jDesktopPane.add(consultaPrecio);
-        int x=(jDesktopPane.getWidth()-consultaPrecio.getWidth())/2;
-        int y=(jDesktopPane.getHeight()-consultaPrecio.getHeight())/2;
+        int x = (jDesktopPane.getWidth() - consultaPrecio.getWidth()) / 2;
+        int y = (jDesktopPane.getHeight() - consultaPrecio.getHeight()) / 2;
         consultaPrecio.setLocation(x, y);
         consultaPrecio.setVisible(true);
-        
+
     }//GEN-LAST:event_jConsultaPrecioActionPerformed
 
     private void jConsultaRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jConsultaRubroActionPerformed
-        
-        ConsultaRubro consultaRubro=new ConsultaRubro();
+
+        ConsultaRubro consultaRubro = new ConsultaRubro();
         jDesktopPane.add(consultaRubro);
-        int x=(jDesktopPane.getWidth()-consultaRubro.getWidth())/2;
-        int y=(jDesktopPane.getHeight()-consultaRubro.getHeight())/2;
+        int x = (jDesktopPane.getWidth() - consultaRubro.getWidth()) / 2;
+        int y = (jDesktopPane.getHeight() - consultaRubro.getHeight()) / 2;
         consultaRubro.setLocation(x, y);
         consultaRubro.setVisible(true);
-        
+
     }//GEN-LAST:event_jConsultaRubroActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
-       
-        int respuesta=JOptionPane.showConfirmDialog(this, "Esta seguro ?", "Confirmar Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if( respuesta==JOptionPane.YES_OPTION ) {
+
+        int respuesta = JOptionPane.showConfirmDialog(this, "Esta seguro ?", "Confirmar Salir", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if(respuesta == JOptionPane.YES_OPTION){
             dispose();
             System.exit(0);
         }
-        
+
     }//GEN-LAST:event_jMenuSalirMouseClicked
 
-    public static void main(String args[]) {
+    public static void main(String args[]){
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
-        try {
-            for( javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels() ) {
-                if( "Nimbus".equals(info.getName()) ) {
+        try{
+            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()){
+                if("Nimbus".equals(info.getName())){
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
-        } catch( ClassNotFoundException ex ) {
+        } catch(ClassNotFoundException ex){
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch( InstantiationException ex ) {
+        } catch(InstantiationException ex){
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch( IllegalAccessException ex ) {
+        } catch(IllegalAccessException ex){
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch( javax.swing.UnsupportedLookAndFeelException ex ) {
+        } catch(javax.swing.UnsupportedLookAndFeelException ex){
             java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable(){
+            public void run(){
                 new Main().setVisible(true);
             }
         });
     }
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JMenuAdministracion;
@@ -208,6 +202,4 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuSalir;
     // End of variables declaration//GEN-END:variables
 
-
-    
 }

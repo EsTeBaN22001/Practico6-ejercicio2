@@ -1,8 +1,8 @@
-package Views.Consulatas;
+package Views.Consultas;
 
 
-public class ConsultaNombre extends javax.swing.JInternalFrame {
-    public ConsultaNombre() {
+public class ConsultaRubro extends javax.swing.JInternalFrame {
+    public ConsultaRubro() {
         initComponents();
         
         
