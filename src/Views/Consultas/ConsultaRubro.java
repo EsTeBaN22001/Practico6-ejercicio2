@@ -17,10 +17,18 @@ public class ConsultaRubro extends javax.swing.JInternalFrame {
         armarCabecera();
         cargarCombo() ;
         
+        
         jComboRubro.addActionListener(e -> {
             String rubroSeleccionado = (String) jComboRubro.getSelectedItem();
             cargarProductosPorRubro(rubroSeleccionado);
         });
+        
+        // ESTE SELECCIONA EL PRIMERO DEL COMBO BOX
+         if (jComboRubro.getItemCount() > 1) { 
+            jComboRubro.setSelectedIndex(1);
+            cargarProductosPorRubro((String) jComboRubro.getSelectedItem());
+        }
+         // ESTE SELECCIONA EL PRIMERO DEL COMBO BOX
         
     }
     private void cargarCombo() {
