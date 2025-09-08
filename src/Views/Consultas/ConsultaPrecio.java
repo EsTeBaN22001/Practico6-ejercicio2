@@ -20,7 +20,7 @@ public class ConsultaPrecio extends javax.swing.JInternalFrame{
         initComponents();
         this.setSize(500, 550);
 
-        debounceTimer = new Timer(300, e -> buscarPorRangoPrecio());
+        debounceTimer = new Timer(700, e -> buscarPorRangoPrecio());
 
         // ✅ Asignar modelo a la tabla
         jTable1.setModel(modelo);

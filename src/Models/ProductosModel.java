@@ -20,7 +20,6 @@ public class ProductosModel{
         productos.add(new Producto(103, "Jabón Dove", 1800.0, "Perfumería", 100));
         productos.add(new Producto(101, "Arroz Gallo", 2500.0, "Comestible", 50));
         productos.add(new Producto(102, "Detergente Mágico", 3200.0, "Limpieza", 30));
-
     }
 
     public Producto buscarPorCodigo(int codigo){
