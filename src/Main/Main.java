@@ -84,6 +84,11 @@ public class Main extends javax.swing.JFrame{
                 jMenuSalirMouseClicked(evt);
             }
         });
+        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenuSalir);
 
         setJMenuBar(jMenuBar1);
@@ -155,6 +160,10 @@ public class Main extends javax.swing.JFrame{
         }
 
     }//GEN-LAST:event_jMenuSalirMouseClicked
+
+    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
+        
+    }//GEN-LAST:event_jMenuSalirActionPerformed
 
     public static void main(String args[]){
         /* Set the Nimbus look and feel */
