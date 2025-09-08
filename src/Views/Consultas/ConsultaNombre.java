@@ -18,6 +18,7 @@ public class ConsultaNombre extends javax.swing.JInternalFrame{
     public ConsultaNombre(){
         initComponents();
         this.setSize(500, 550);
+        jTable1.setModel(modelo);
         actualizarTabla();
 
         debounceTimer = new Timer(300, e -> realizarBusqueda());
@@ -78,10 +79,6 @@ public class ConsultaNombre extends javax.swing.JInternalFrame{
             });
         }
 
-//        if(productosFiltrados.isEmpty() &&  ! texto.isEmpty()){
-//             Opcional: mensaje de "no se encontraron resultados"
-//             JOptionPane.showMessageDialog(this, "No se encontraron productos.", "Info", JOptionPane.INFORMATION_MESSAGE);
-//        }
     }
 
     @SuppressWarnings("unchecked")
