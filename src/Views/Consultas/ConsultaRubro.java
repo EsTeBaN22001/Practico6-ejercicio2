@@ -5,45 +5,42 @@ import Models.ProductosModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
+public class ConsultaRubro extends javax.swing.JInternalFrame{
 
-public class ConsultaRubro extends javax.swing.JInternalFrame {
-    
     private DefaultTableModel modelo = new DefaultTableModel();
-    
-    public ConsultaRubro() {
+
+    public ConsultaRubro(){
         initComponents();
-        this.setSize(600, 450);
+        this.setSize(500, 550);
         jTable.setModel(modelo);
         armarCabecera();
-        cargarCombo() ;
-        
-        
+        cargarCombo();
+
         jComboRubro.addActionListener(e -> {
             String rubroSeleccionado = (String) jComboRubro.getSelectedItem();
             cargarProductosPorRubro(rubroSeleccionado);
         });
-        
+
         // ESTE SELECCIONA EL PRIMERO DEL COMBO BOX
-         if (jComboRubro.getItemCount() > 1) { 
+        if(jComboRubro.getItemCount() > 1){
             jComboRubro.setSelectedIndex(1);
             cargarProductosPorRubro((String) jComboRubro.getSelectedItem());
         }
-         // ESTE SELECCIONA EL PRIMERO DEL COMBO BOX
-        
+        // ESTE SELECCIONA EL PRIMERO DEL COMBO BOX
+
     }
-    private void cargarCombo() {
+
+    private void cargarCombo(){
         jComboRubro.removeAllItems();
-        jComboRubro.addItem(null);
         java.util.Set<String> categorias = new java.util.HashSet<>();
-        for (Producto p : ProductosModel.getInstance().getProductos()) {
+        for(Producto p : ProductosModel.getInstance().getProductos()){
             categorias.add(p.getCategoria());
         }
-        for (String cat : categorias) {
+        for(String cat : categorias){
             jComboRubro.addItem(cat);
         }
     }
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -88,41 +85,41 @@ public class ConsultaRubro extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jLabel2)
-                        .addGap(55, 55, 55)
-                        .addComponent(jComboRubro, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(51, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(64, 64, 64))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jComboRubro, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(35, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboRubro, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboRubro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> jComboRubro;
@@ -133,22 +130,23 @@ public class ConsultaRubro extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable;
     // End of variables declaration//GEN-END:variables
 
-
-    private void armarCabecera() {
+    private void armarCabecera(){
         modelo.addColumn("Código");
         modelo.addColumn("Descripción");
         modelo.addColumn("Precio");
         modelo.addColumn("Categoria");
         modelo.addColumn("Stock");
     }
-    
-    private void cargarProductosPorRubro(String rubro) {
-        
-        modelo.setRowCount(0);
-        if (rubro == null || rubro.trim().isEmpty()) return;
 
-        for (Producto p : ProductosModel.getInstance().getProductos()) {
-            if (p.getCategoria().equalsIgnoreCase(rubro)) {
+    private void cargarProductosPorRubro(String rubro){
+
+        modelo.setRowCount(0);
+        if(rubro == null || rubro.trim().isEmpty()){
+            return;
+        }
+
+        for(Producto p : ProductosModel.getInstance().getProductos()){
+            if(p.getCategoria().equalsIgnoreCase(rubro)){
                 modelo.addRow(new Object[]{
                     p.getCodigo(),
                     p.getDescripcion(),
@@ -158,20 +156,18 @@ public class ConsultaRubro extends javax.swing.JInternalFrame {
                 });
             }
         }
-        if (modelo.getRowCount() == 0) {
+        if(modelo.getRowCount() == 0){
             JOptionPane.showMessageDialog(this,
-                "No se encontraron productos en la categoría: " + rubro,
-                "Sin resultados",
-                JOptionPane.INFORMATION_MESSAGE);
+              "No se encontraron productos en la categoría: " + rubro,
+              "Sin resultados",
+              JOptionPane.INFORMATION_MESSAGE);
         }
-}
-    
-    
-/*
+    }
+
+    /*
              /\_/\           ___
             = o_o =_______    \ \
              __^      __(  \.__) )
          (@)<_____>__(_____)____/
- */
-
+     */
 }
