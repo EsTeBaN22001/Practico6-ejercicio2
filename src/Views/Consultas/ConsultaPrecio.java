@@ -22,13 +22,13 @@ public class ConsultaPrecio extends javax.swing.JInternalFrame{
 
         debounceTimer = new Timer(700, e -> buscarPorRangoPrecio());
 
-        // ✅ Asignar modelo a la tabla
+        // Asignar modelo a la tabla
         jTable1.setModel(modelo);
 
         // Cargar todos al inicio
         actualizarTabla();
 
-        // ✅ DocumentListener para búsqueda en tiempo real
+        // DocumentListener para búsqueda en tiempo real
         minInput.getDocument().addDocumentListener(new javax.swing.event.DocumentListener(){
             @Override
             public void insertUpdate(DocumentEvent e){
